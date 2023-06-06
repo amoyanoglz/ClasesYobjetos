@@ -20,9 +20,7 @@ class Aula:
 
     def puntuar(self):
         for alumno in self.alumnos:
-            alumno.setNota(random.randint(3, 10))
-            if alumno.turno == "A":
-                alumno.setNota(0)
+            alumno.setNota(self.profesor.generar_nota())
             alumno.describe()
     
     def set_profesor(self, profesor):
