@@ -3,7 +3,7 @@ from aula import Aula
 from profesor import Profesor
 
 mi_aula = Aula()
-mi_profe = Profesor()
+mi_profe = Profesor("Juanito Balerrama", 4, 6)
 
 mi_aula.set_profesor(mi_profe)
 mi_aula.add(Alumno("Pepito", "A", "pepito@a.com"))
