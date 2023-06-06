@@ -1,28 +1,21 @@
 from alumno import Alumno
 from aula import Aula
-
-def convocar_todos():
-    for turno in turnos:
-        print(f"TURNO: {turno}")
-        mi_aula.convocar_examen(turno)
-        print("")
+from profesor import Profesor
 
 mi_aula = Aula()
+mi_profe = Profesor()
 
-turnos = ["A", "B", "C"]
+mi_aula.set_profesor(mi_profe)
+mi_aula.add(Alumno("Pepito", "A", "pepito@a.com"))
+mi_aula.add(Alumno("Lucia", "A", "lucia@a.com"))
+mi_aula.add(Alumno("Martita", "A", "martita@b.com"))
+mi_aula.add(Alumno("Gloria", "A", "gloria@b.com"))
+mi_aula.add(Alumno("Juanito", "A", "juanito@c.com"))
+mi_aula.add(Alumno("Jorgito", "A", "jorgito@c.com"))
+mi_aula.add(Alumno("Jaimito", "A", "jaimito@c.com"))
 
-mi_aula.add(Alumno("Pepito", turnos[0], "pepito@a.com"))
-mi_aula.add(Alumno("Lucia", turnos[0], "lucia@a.com"))
-mi_aula.add(Alumno("Martita", turnos[1], "martita@b.com"))
-mi_aula.add(Alumno("Gloria", turnos[1], "gloria@b.com"))
-mi_aula.add(Alumno("Juanito", turnos[2], "juanito@c.com"))
-mi_aula.add(Alumno("Jorgito", turnos[2], "jorgito@c.com"))
-mi_aula.add(Alumno("Jaimito", turnos[2], "jaimito@c.com"))
 mi_aula.puntuar()
-
+mi_aula.listar()
 print()
 print("CONVOCADOS:")
-convocar_todos()
-
-print("CONVOCADOS A:")
-mi_aula.convocar_examen(turnos[0])
+mi_aula.convocar_examen("A")
