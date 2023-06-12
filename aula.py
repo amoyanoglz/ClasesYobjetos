@@ -11,7 +11,7 @@ class Aula:
     def listar(self):
         print(f"PROFESOR: {self.profesor}")
         for alumno in self.alumnos:
-            alumno.describe()
+            print(alumno)
     
     def convocar_examen(self, turno):
         if not self.profesor:
@@ -33,7 +33,7 @@ class Aula:
 
         for alumno in self.alumnos:
             alumno.setNota(self.profesor.generar_nota())
-            alumno.describe()
+            print(alumno)
     
     def set_profesor(self, profesor):
         self.profesor = profesor

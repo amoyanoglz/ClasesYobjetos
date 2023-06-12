@@ -1,17 +1,21 @@
 class Alumno:
+
     def __init__(self, nombre, turno, correo):
         self.nombre = nombre
         self.correo = correo
         self.turno = turno
         self.nota = 0
 
+    def __str__(self):
+        buffer = []
+        buffer.append(f"Alumno: {self.nombre.ljust(8)}\n")
+        buffer.append(f" Turno: {self.turno}\n")
+        buffer.append(f"  Nota: {self.nota}")
+
+        return "".join(buffer)
+
     def setNota(self, nota):
         self.nota = nota
-
-    def describe(self):
-        print(f"Alumno: {self.nombre.ljust(8)}", end = " - ")
-        print(f"Turno:  {self.turno}", end = " - ")
-        print(f"Nota:   {self.nota}")
 
     def convocar_examen(self, turno):
         if self.nota >= 5 and turno == self.turno:
