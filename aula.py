@@ -37,4 +37,3 @@ class Aula:
     
     def set_profesor(self, profesor):
         self.profesor = profesor
-
