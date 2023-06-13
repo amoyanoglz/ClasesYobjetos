@@ -1,20 +1,21 @@
 import requests
 
-def get_json_from(uri):
+def generate_name_and_email():
+    uri = 'https://randomuser.me/api/?results=10'
     r = requests.get(uri)
+    randomuser = r.json()
+    user = randomuser["results"][0]
+    my_user_data = {
+        "nombre": f'{user["name"]["first"]} {user["name"]["last"]}',
+        "correo": user["email"]
+    }
 
-    return r.json()
-
+    return [my_user_data]
 
 def main():
-    results = "1"  # input("Cuantos quieres? ")
-    uri = f'https://randomuser.me/api/?results=1{results}'
-    dict = get_json_from(uri)
-
+    my_user = generate_name_and_email()[0]
+    print(f"NOMBRE: {my_user['nombre']}")
+    print(f"CORREO: {my_user['correo']}")
 
 if __name__ == "__main__":
     main()
-
-
-
-
