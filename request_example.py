@@ -1,15 +1,7 @@
 import requests
-# recuerda instalar la libreria
-#     Win: pip install requests
-#     Mac: pip3 install requests
 
 def get_json_from(uri):
     r = requests.get(uri)
-    # print(r.status_code)
-    # print(r.headers['content-type'])
-    # print(r.encoding)
-    # print(r.text)
-    # print(r.json())
 
     return r.json()
 
@@ -32,15 +24,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# Viejo request: No funciona a la priemra en windows:
 
-# import json
-# import urllib.request
 
-# def get_json_from(uri):
-#     urlopenRet = urllib.request.urlopen(urlData)
-#     data = urlopenRet.read()
-#     encoding = urlopenRet.info().get_content_charset('utf-8')
-#     JSON_object = json.loads(data.decode(encoding))
 
-#     return JSON_object
