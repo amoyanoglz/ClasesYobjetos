@@ -1,8 +1,8 @@
-class Alumno:
+from user import User
+class Alumno(User):
 
     def __init__(self, nombre, turno, correo):
-        self.nombre = nombre
-        self.correo = correo
+        super().__init__(nombre, correo)
         self.turno = turno
         self.nota = 0
 

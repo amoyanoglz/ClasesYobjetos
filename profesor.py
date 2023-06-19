@@ -1,6 +1,8 @@
 import random
-class Profesor:
+from user import User
+class Profesor(User):
     def __init__(self, nombre, nota_minima, nota_maxima):
+        super().__init__(nombre)
 
         VALID_NOTES = {
             "min": (0.0, 4.0),
@@ -28,7 +30,6 @@ class Profesor:
                 raise Exception(f'La nota máxima debe ser inferior a {max}')
             return nota_maxima
 
-        self.nombre = nombre
         self.nota_minima = validar_nota_minima(nota_minima)
         self.nota_maxima = validar_nota_maxima(nota_maxima)
 
