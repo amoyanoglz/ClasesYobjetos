@@ -10,12 +10,16 @@ class Alumno(User):
         buffer = []
         buffer.append(f"Alumno: {self.nombre.ljust(8)}\n")
         buffer.append(f" Turno: {self.turno}\n")
-        buffer.append(f"  Nota: {self.nota}")
+        buffer.append(f"  Nota: {self.getNota()}")
 
         return "".join(buffer)
 
     def setNota(self, nota):
         self.nota = nota
+
+    
+    def getNota(self):
+        return round(self.nota, 2)
 
     def convocar_examen(self, turno):
         if self.nota >= 5 and turno == self.turno:
