@@ -32,8 +32,9 @@ class Profesor(User):
         self.nota_minima = validar_nota_minima(nota_minima)
         self.nota_maxima = validar_nota_maxima(nota_maxima)
 
+    # + "\u202A" fixes the problem with the text direction in the console
     def __str__(self) -> str:
-        return f"{self.nombre} [{self.nota_minima}/{self.nota_maxima}]"
+        return self.nombre + "\u202A" + f" [{self.nota_minima}/{self.nota_maxima}]"
 
     def generar_nota(self) -> float:
         return random.uniform(self.nota_minima, self.nota_maxima)

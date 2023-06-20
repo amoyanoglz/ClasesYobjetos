@@ -1,12 +1,15 @@
+from random import uniform
+
 from alumno import Alumno
 from aula import Aula
 from profesor import Profesor
-from data_user_generator import DataUserGenerator
+from generador_usuarios import GeneradorDeUsuarios
 
 
 class CentroEducativo:
     def __init__(self, alumnos=1, profesores=1, aulas=1):
-        self.data_user_generator = DataUserGenerator(10)
+        total_usuarios = alumnos + profesores
+        self.data_user_generator = GeneradorDeUsuarios(total_usuarios)
         self.aulas = []
         self.alumnos = []
         self.profesores = []
@@ -24,16 +27,22 @@ class CentroEducativo:
             self.aulas.append(Aula())
 
     def generar_profesores(self):
-        self.profesores = [
-            Profesor("Juanito Balerrama", 0, 10),
-            Profesor("Manolito Pomporretas", 0, 10),
-            Profesor("Teres Rabal", 0, 10),
-        ]
+        for i in range(self.cantidad["profesores"]):
+            usuario = self.data_user_generator.generar_usuario()
+            profesor = Profesor(
+                usuario["nombre_completo"],
+                round(uniform(0, 4), 2),
+                round(uniform(6, 10), 2),
+            )
+
+            self.profesores.append(profesor)
 
     def generar_alumnos(self):
         for i in range(self.cantidad["alumnos"]):
             usuario = self.data_user_generator.generar_usuario()
-            self.alumnos.append(Alumno(usuario["nombre"], usuario["correo"], "A"))
+            self.alumnos.append(
+                Alumno(usuario["nombre_completo"], usuario["correo"], "A")
+            )
 
     def asignar_profesores(self):
         contador = 0
