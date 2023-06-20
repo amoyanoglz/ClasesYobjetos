@@ -1,5 +1,6 @@
 import random
 from user import User
+
 class Profesor(User):
     def __init__(self, nombre, nota_minima, nota_maxima):
         super().__init__(nombre)

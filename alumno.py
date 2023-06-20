@@ -1,4 +1,5 @@
 from user import User
+
 class Alumno(User):
 
     def __init__(self, nombre, turno, correo):
