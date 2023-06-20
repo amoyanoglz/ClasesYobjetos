@@ -2,7 +2,8 @@ from random import randint
 from centro_educativo import CentroEducativo
 
 if __name__ == "__main__":
-    scale = randint(1, 100)
+    scale = randint(1, 5)
+
     alumnos = randint(8, 60) * scale
     profesores = randint(1, 10) * scale
     aulas = randint(1, 10) * scale

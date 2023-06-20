@@ -9,25 +9,23 @@ from generador_usuarios import GeneradorDeUsuarios
 class CentroEducativo:
     def __init__(self, alumnos=1, profesores=1, aulas=1):
         total_usuarios = alumnos + profesores
-        self.data_user_generator = GeneradorDeUsuarios(total_usuarios)
         self.aulas = []
         self.alumnos = []
         self.profesores = []
+        self.data_user_generator = GeneradorDeUsuarios(total_usuarios)
 
-        self.cantidad = {"aulas": aulas, "alumnos": alumnos, "profesores": profesores}
-
-        self.generar_aulas()
-        self.generar_profesores()
-        self.generar_alumnos()
+        self.generar_aulas(aulas)
+        self.generar_profesores(profesores)
+        self.generar_alumnos(alumnos)
         self.asignar_profesores()
         self.asignar_alumnos()
 
-    def generar_aulas(self):
-        for i in range(self.cantidad["aulas"]):
+    def generar_aulas(self, aulas):
+        for i in range(aulas):
             self.aulas.append(Aula())
 
-    def generar_profesores(self):
-        for i in range(self.cantidad["profesores"]):
+    def generar_profesores(self, profesores):
+        for i in range(profesores):
             usuario = self.data_user_generator.generar_usuario()
             profesor = Profesor(
                 usuario["nombre_completo"],
@@ -37,8 +35,8 @@ class CentroEducativo:
 
             self.profesores.append(profesor)
 
-    def generar_alumnos(self):
-        for i in range(self.cantidad["alumnos"]):
+    def generar_alumnos(self, alumnos):
+        for i in range(alumnos):
             usuario = self.data_user_generator.generar_usuario()
             self.alumnos.append(
                 Alumno(usuario["nombre_completo"], usuario["correo"], "A")

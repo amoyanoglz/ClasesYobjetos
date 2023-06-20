@@ -56,7 +56,7 @@ class GeneradorDeUsuarios:
 
         self.usuarios_solicitados += cantidad_solicitud
 
-        if self.debug_level:
+        if self.debug_level or cantidad_solicitud > 25:
             print(f"Solicitando {cantidad_solicitud} usuarios")
         uri = f"https://randomuser.me/api/?results={cantidad_solicitud}"
         respuesta = requests.get(uri)
