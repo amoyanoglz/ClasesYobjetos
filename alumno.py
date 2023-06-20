@@ -2,7 +2,7 @@ from user import User
 
 
 class Alumno(User):
-    def __init__(self, nombre, turno, correo):
+    def __init__(self, nombre, correo, turno = "A"):
         super().__init__(nombre, correo)
         self.turno = turno
         self.nota = 0

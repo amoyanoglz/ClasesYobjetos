@@ -39,22 +39,17 @@ class CentroEducativo:
         for i in range(alumnos):
             usuario = self.data_user_generator.generar_usuario()
             self.alumnos.append(
-                Alumno(usuario["nombre_completo"], usuario["correo"], "A")
+                Alumno(usuario["nombre_completo"], usuario["correo"])
             )
 
     def asignar_profesores(self):
-        contador = 0
-        while contador < len(self.profesores):
-            self.aulas[contador % (len(self.aulas) - 1)].set_profesor(
-                self.profesores[contador]
-            )
-            contador += 1
+        for i, profesor in enumerate(self.profesores):
+            aula = self.aulas[i % len(self.aulas)]
+            aula.set_profesor(profesor)
 
     def asignar_alumnos(self):
-        contador = 0
-        while contador < len(self.alumnos):
-            self.aulas[contador % (len(self.aulas) - 1)].add(self.alumnos[contador])
-            contador += 1
+        for i, alumno in enumerate(self.alumnos):
+            self.aulas[i % len(self.aulas)].add(alumno)
 
     def listar(self):
         contador = 0
@@ -78,7 +73,7 @@ class CentroEducativo:
             except Exception as e:
                 print(e)
 
-            print("\n" * 3)
+            print("\n" * 1)
             contador += 1
 
     def convocar(self, turno="A"):
@@ -90,6 +85,5 @@ class CentroEducativo:
                 aula.convocar_examen(turno)
             except Exception as e:
                 print(e)
-
-        print("\n" * 3)
-        contador += 1
+            print("\n" * 3)
+            contador += 1
