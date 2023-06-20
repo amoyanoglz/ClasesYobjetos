@@ -4,13 +4,14 @@ from time import sleep
 
 WAIT = 0.01
 
+
 class Pato:
     cantidad = 0
     patas = 2
     ultimo_creado = None
     plumas = 0
 
-    def __init__(self, nombre = "Anónimo"):
+    def __init__(self, nombre="Anónimo"):
         self.creado_en = datetime.datetime.now()
         self.nombre = nombre
         self.plumas = randint(1000, 2000)
@@ -34,25 +35,30 @@ class Pato:
 
         return buffer
 
-class Perro():
+
+class Perro:
     patas = 4
+
     def ladra(self):
         print("Guau guau")
-    
+
     def __str__(self):
         return "Perro"
+
 
 def describe(sobrinos):
     print(f"Donald tiene {len(sobrinos)} sobrinos:")
     for sobrino in sobrinos:
         print(sobrino)
 
+
 def fiesta_de_patos():
     print("Fiesta de patos")
     festero_1 = Pato()
     festero_2 = Pato()
-    sleep(WAIT*4)
+    sleep(WAIT * 4)
     print("Fin de la fiesta")
+
 
 print("Creando patos...")
 sobrinos = []
@@ -73,7 +79,7 @@ print()
 describe(sobrinos)
 sleep(WAIT * 6)
 indice_al_azar = randint(0, len(sobrinos) - 1)
-del(sobrinos[indice_al_azar])
+del sobrinos[indice_al_azar]
 describe(sobrinos)
 
 print(f"Existen {Pato.cantidad} patos")
@@ -89,13 +95,7 @@ perro.ladra()
 print()
 sleep(WAIT * 2)
 
-animales = [
-    Pato("Donald"),
-    Pato("Daisy"),
-    Perro(),
-    Pato(),
-    Perro()
-]
+animales = [Pato("Donald"), Pato("Daisy"), Perro(), Pato(), Perro()]
 
 for animal in animales:
     print(f"El animal tiene {animal.patas} patas")
