@@ -35,15 +35,24 @@ class Pato:
 
         return buffer
 
+    def grazna():
+        print("Cuack cuack")
 
-class Perro:
-    patas = 4
 
+class Animal:
+    def __init__(self, nombre) -> None:
+        self.nombre = nombre
+
+
+class Perro(Animal):
     def ladra(self):
         print("Guau guau")
 
     def __str__(self):
         return "Perro"
+
+
+chiua = Perro()
 
 
 def describe(sobrinos):
@@ -60,46 +69,46 @@ def fiesta_de_patos():
     print("Fin de la fiesta")
 
 
-print("Creando patos...")
-sobrinos = []
-sobrinos.append(Pato("Jaimito"))
-sleep(WAIT)
-sobrinos.append(Pato("Jorgito"))
-sleep(WAIT)
-sobrinos.append(Pato("Juanito"))
-sleep(WAIT)
+# print("Creando patos...")
+# sobrinos = []
+# sobrinos.append(Pato("Jaimito"))
+# sleep(WAIT)
+# sobrinos.append(Pato("Jorgito"))
+# sleep(WAIT)
+# sobrinos.append(Pato("Juanito"))
+# sleep(WAIT)
 
-print(f"Hemos creado {Pato.cantidad} patos")
-print(f"El último pato creado fue {Pato.ultimo_creado}")
-print(f"En total hay {Pato.plumas} plumas")
+# print(f"Hemos creado {Pato.cantidad} patos")
+# print(f"El último pato creado fue {Pato.ultimo_creado}")
+# print(f"En total hay {Pato.plumas} plumas")
 
-fiesta_de_patos()
+# fiesta_de_patos()
 
-print()
-describe(sobrinos)
-sleep(WAIT * 6)
-indice_al_azar = randint(0, len(sobrinos) - 1)
-del sobrinos[indice_al_azar]
-describe(sobrinos)
+# print()
+# describe(sobrinos)
+# sleep(WAIT * 6)
+# indice_al_azar = randint(0, len(sobrinos) - 1)
+# del sobrinos[indice_al_azar]
+# describe(sobrinos)
 
-print(f"Existen {Pato.cantidad} patos")
-print(f"En total hay {Pato.plumas} plumas")
+# print(f"Existen {Pato.cantidad} patos")
+# print(f"En total hay {Pato.plumas} plumas")
 
-print("Fin del programa ahora limpiaremos la memoria")
-sleep(WAIT * 2)
+# print("Fin del programa ahora limpiaremos la memoria")
+# sleep(WAIT * 2)
 
-print(f"El sobrino {sobrinos[0].nombre} tiene {sobrinos[0].patas} plumas")
+# print(f"El sobrino {sobrinos[0].nombre} tiene {sobrinos[0].patas} plumas")
 
-perro = Perro()
-perro.ladra()
-print()
-sleep(WAIT * 2)
+# perro = Perro()
+# perro.ladra()
+# print()
+# sleep(WAIT * 2)
 
-animales = [Pato("Donald"), Pato("Daisy"), Perro(), Pato(), Perro()]
+# animales = [Pato("Donald"), Pato("Daisy"), Perro(), Pato(), Perro()]
 
-for animal in animales:
-    print(f"El animal tiene {animal.patas} patas")
-    sleep(WAIT)
+# for animal in animales:
+#     print(f"El animal tiene {animal.patas} patas")
+#     sleep(WAIT)
 
-print()
-print()
+# print()
+# print()
